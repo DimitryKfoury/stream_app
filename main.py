@@ -8,7 +8,7 @@ from lime import lime_tabular
 from matplotlib import pyplot as plt
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
-pickled_model=joblib.load('model.pkl')
+pickled_model=joblib.load('model.sav')
 
 data=pd.read_json(r'data.json')
 predict_data=pd.read_json(r'predict_df.json')
