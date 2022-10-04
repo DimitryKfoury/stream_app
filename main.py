@@ -37,7 +37,7 @@ client_info=st.container()
 modeltraining=st.container()
 
 def request(client_number):
-    url = 'http://localhost:1238/api'
+    url = 'http://localhost:1238/process_json'
     r = requests.get(url,json={'client_num':client_number})
     return r.json()
 
