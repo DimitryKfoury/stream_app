@@ -77,7 +77,7 @@ with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
      st.header('Feature Graphs')
-     fig, axs = plt.subplots(2,2)
+     fig, axs = plt.subplots(2,2,figsize=(20,20))
      axs[0,0].set_title('Distribution de'+inp1+'pour les crédits acceptés')
      axs[1,0].set_title('Distribution de'+inp1+'pour les crédits refusés')
      axs[0,1].set_title('Distribution de'+inp2+'pour les crédits acceptés')
