@@ -71,8 +71,8 @@ with feature_graph:
 	 inp_col,out_col=st.columns(2)
 with inp_col:
      st.header('Select Feature') 	 	
-     inp1=st.sidebar.selectbox('Select Feature',data.columns)
-     inp2=st.sidebar.selectbox('Select Feature',data.columns)
+     inp1=st.selectbox('Select Feature 1',data.columns)
+     inp2=st.selectbox('Select Feature 2',data.columns)
 with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
