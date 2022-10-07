@@ -6,6 +6,7 @@ import joblib
 import requests
 from lime import lime_tabular
 from matplotlib import pyplot as plt
+from sklearn.neighbors import KneighborsClassifier
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 pickled_model=joblib.load('model.sav')
@@ -35,16 +36,16 @@ feature_graph=st.container()
 featur_importance_global=st.container()
 client_info=st.container()
 modeltraining=st.container()
-
+neighbors=st.container()
 def request(client_number):
-    url = 'https://loan-default-api-1.herokuapp.com/process_json'
+    url = 'http://127.0.0.1:8082/process_json'
     r = requests.get(url,json={'client_num':client_number})
     return r.json()
 
 
 with header:
-	st.title('Welcome to my Data Science project')
-	client_num=st.number_input('Client number')
+	st.title('Prêt à dépenser')
+	client_num=st.selectbox('Select client number',predict_data.index)
 
 
 with feature_importance_local:
@@ -78,6 +79,10 @@ with out_col:
      #st.plotly_chart(fig,use_container_width=True)
 
      st.bar_chart(data,x='TARGET',y=inp) 
+with neighbors:
+     st.header('10 Similar clients')
+
+
 
 
 
