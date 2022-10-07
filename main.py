@@ -79,7 +79,7 @@ with out_col:
      #fig=ff.create_distplot(hist_data,group_labels='0')
      if inp3=='Histogram':
 
-        st.header('Feature Graphs')
+        st.header(inp3)
         fig, axs = plt.subplots(2,2,figsize=(20,20))
         axs[0,0].set_title('Distribution de '+inp1+' pour les crédits acceptés',fontsize=20)
         axs[1,0].set_title('Distribution de '+inp1+' pour les crédits refusés',fontsize=20)
@@ -96,10 +96,11 @@ with out_col:
         st.pyplot(fig) 
         #st.plotly_chart(fig,use_container_width=True)
      if inp3 =='Scatter plot':
-        fig,axs=plt.subplots(1,1,figsize=(20,20))
-        axs.set_title(inp2+' en fonction de '+inp1,fontsize=20)
+        st.header(inp3)
+        fig,axs=plt.subplots(1,1,figsize=(30,30))
+        axs.set_title(inp2+' en fonction de '+inp1,fontsize=40)
         axs.scatter(x=inp1,y=inp2,data=data)
-        axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red')
+        axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red',mzrker='X')
         st.pyplot(fig)
 
      
