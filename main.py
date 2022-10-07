@@ -79,8 +79,8 @@ with out_col:
      fig, axs = plt.subplots(2,1)
      axs[0].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
      axs[1].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
-     axs[0].axvline(x=predict_data.loc[client_id,inp], color='red')
-     axs[1].axvline(x=predict_data.loc[client_id,inp], color='red')
+     axs[0].axvline(x=predict_data.loc[client_num,inp], color='red')
+     axs[1].axvline(x=predict_data.loc[client_num,inp], color='red')
      #st.plotly_chart(fig,use_container_width=True)
 
      st.pyplot(fig) 
