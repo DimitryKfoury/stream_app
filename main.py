@@ -6,7 +6,7 @@ import joblib
 import requests
 from lime import lime_tabular
 from matplotlib import pyplot as plt
-from sklearn.neighbors import KneighborsClassifier
+#from sklearn.neighbors import KneighborsClassifier
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 pickled_model=joblib.load('model.sav')
