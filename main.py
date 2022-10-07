@@ -76,9 +76,13 @@ with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
      st.header('Feature Graphs')
+     fig, axs = plt.subplots(2,1)
+     axs[0].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
+     axs[1].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
+
      #st.plotly_chart(fig,use_container_width=True)
 
-     st.bar_chart(data,x='TARGET',y=inp) 
+     st.pyplot(fig) 
 with neighbors:
      st.header('10 Similar clients')
 
