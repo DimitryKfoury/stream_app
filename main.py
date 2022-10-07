@@ -38,7 +38,7 @@ client_info=st.container()
 modeltraining=st.container()
 neighbors=st.container()
 def request(client_number):
-    url = 'http://127.0.0.1:8082/process_json'
+    url = 'https://loan-default-api-1.herokuapp.com/process_json'
     r = requests.get(url,json={'client_num':client_number})
     return r.json()
 
