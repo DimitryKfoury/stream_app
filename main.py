@@ -71,16 +71,25 @@ with feature_graph:
 	 inp_col,out_col=st.columns(2)
 with inp_col:
      st.header('Select Feature') 	 	
-     inp=st.selectbox('Select Feature',data.columns)
+     inp1=st.selectbox('Select Feature',data.columns)
+     inp2=st.selectbox('Select Feature',data.columns)
 with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
      st.header('Feature Graphs')
-     fig, axs = plt.subplots(2,1)
-     axs[0].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
-     axs[1].hist(x=inp, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
-     axs[0].axvline(x=predict_data.loc[client_num,inp], color='red')
-     axs[1].axvline(x=predict_data.loc[client_num,inp], color='red')
+     fig, axs = plt.subplots(2,2)
+     axs[0].set_title[inp +'Distribution de'+inp1+'pour les crédits acceptés']
+     axs[1].set_title[inp +'Distribution de'+inp1+'pour les crédits refusés']
+     axs[2].set_title[inp +'Distribution de'+inp2+'pour les crédits acceptés']
+     axs[3].set_title[inp +'Distribution de'+inp2+'pour les crédits refusés']
+     axs[0].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
+     axs[1].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
+     axs[0].axvline(x=predict_data.loc[client_num,inp1], color='red')
+     axs[1].axvline(x=predict_data.loc[client_num,inp1], color='red')
+     axs[2].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
+     axs[3].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
+     axs[2].axvline(x=predict_data.loc[client_num,inp2], color='red')
+     axs[3].axvline(x=predict_data.loc[client_num,inp2], color='red')
      #st.plotly_chart(fig,use_container_width=True)
 
      st.pyplot(fig) 
