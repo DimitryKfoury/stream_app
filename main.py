@@ -70,29 +70,39 @@ with feature_graph:
 	 st.header('Feature vs Target bar chart')
 	 inp_col,out_col=st.columns(2)
 with inp_col:
-     st.header('Select Feature') 	 	
+     st.header('Select Features and Graph type') 	 	
      inp1=st.selectbox('Select Feature 1',data.columns)
      inp2=st.selectbox('Select Feature 2',data.columns)
+     inp3=st.selectbox('Select graph type',['Histogram','Scatter plot'])
 with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
-     st.header('Feature Graphs')
-     fig, axs = plt.subplots(2,2,figsize=(20,20))
-     axs[0,0].set_title('Distribution de '+inp1+' pour les crédits acceptés',fontsize=20)
-     axs[1,0].set_title('Distribution de '+inp1+' pour les crédits refusés',fontsize=20)
-     axs[0,1].set_title('Distribution de '+inp2+' pour les crédits acceptés',fontsize=20)
-     axs[1,1].set_title('Distribution de '+inp2+' pour les crédits refusés',fontsize=20)
-     axs[0,0].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
-     axs[1,0].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
-     axs[0,0].axvline(x=predict_data.loc[client_num,inp1], color='red')
-     axs[1,0].axvline(x=predict_data.loc[client_num,inp1], color='red')
-     axs[0,1].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
-     axs[1,1].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
-     axs[0,1].axvline(x=predict_data.loc[client_num,inp2], color='red')
-     axs[1,1].axvline(x=predict_data.loc[client_num,inp2], color='red')
-     #st.plotly_chart(fig,use_container_width=True)
+     if inp3=='Histogram':
 
-     st.pyplot(fig) 
+        st.header('Feature Graphs')
+        fig, axs = plt.subplots(2,2,figsize=(20,20))
+        axs[0,0].set_title('Distribution de '+inp1+' pour les crédits acceptés',fontsize=20)
+        axs[1,0].set_title('Distribution de '+inp1+' pour les crédits refusés',fontsize=20)
+        axs[0,1].set_title('Distribution de '+inp2+' pour les crédits acceptés',fontsize=20)
+        axs[1,1].set_title('Distribution de '+inp2+' pour les crédits refusés',fontsize=20)
+        axs[0,0].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
+        axs[1,0].hist(x=inp1, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
+        axs[0,0].axvline(x=predict_data.loc[client_num,inp1], color='red')
+        axs[1,0].axvline(x=predict_data.loc[client_num,inp1], color='red')
+        axs[0,1].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==0])
+        axs[1,1].hist(x=inp2, density=False, color='turquoise', ec='blue', data=data[data['TARGET']==1])
+        axs[0,1].axvline(x=predict_data.loc[client_num,inp2], color='red')
+        axs[1,1].axvline(x=predict_data.loc[client_num,inp2], color='red')
+        st.pyplot(fig) 
+        #st.plotly_chart(fig,use_container_width=True)
+     if inp3 =='Scatter plot':
+        fig,axs=plt.subplots(1,1,figsize=(20,20))
+        axs.set_title(inp2+' en fonction de '+inp1,fontsize=20)
+        axs.scatter(x=inp1,y=inp2)
+        axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red')
+        st.pyplot(fig)
+
+     
 with neighbors:
      st.header('10 Similar clients')
 
