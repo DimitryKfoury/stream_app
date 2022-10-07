@@ -98,7 +98,7 @@ with out_col:
      if inp3 =='Scatter plot':
         fig,axs=plt.subplots(1,1,figsize=(20,20))
         axs.set_title(inp2+' en fonction de '+inp1,fontsize=20)
-        axs.scatter(x=inp1,y=inp2)
+        axs.scatter(x=inp1,y=inp2,data=data)
         axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red')
         st.pyplot(fig)
 
