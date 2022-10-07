@@ -100,7 +100,7 @@ with out_col:
         fig,axs=plt.subplots(1,1,figsize=(30,30))
         axs.set_title(inp2+' en fonction de '+inp1,fontsize=40)
         axs.scatter(x=inp1,y=inp2,data=data)
-        axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red',marker='X',s=300)
+        axs.scatter(x=predict_data.loc[client_num,inp1],y=predict_data.loc[client_num,inp2], color='red',marker='X',s=1000)
         st.pyplot(fig)
 
      
