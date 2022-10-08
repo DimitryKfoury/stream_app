@@ -67,7 +67,7 @@ with client_score:
 
 
 with feature_graph:
-	 st.header('Feature vs Target bar chart')
+	 st.header('Client comparision with other customers')
 	 inp_col,out_col=st.columns(2)
 with inp_col:
      st.header('Select Features and Graph type') 	 	
