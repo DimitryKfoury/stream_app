@@ -9,8 +9,8 @@ from matplotlib import pyplot as plt
 #from sklearn.neighbors import KneighborsClassifier
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
-pickled_model=joblib.load('model.sav')
 
+pickled_model=joblib.load('model.sav')
 data=pd.read_json(r'data.json')
 predict_data=pd.read_json(r'predict_df.json')
 predict_data=predict_data.set_index('index')
@@ -104,8 +104,7 @@ with out_col:
         st.pyplot(fig)
 
      
-with neighbors:
-     st.header('10 Similar clients')
+
 
 
 
