@@ -31,10 +31,10 @@ def lime(client_id):
 
 header=st.container()
 client_score=st.container()
+client_info=st.container()
 feature_importance_local=st.container()
 feature_graph=st.container()
 featur_importance_global=st.container()
-client_info=st.container()
 modeltraining=st.container()
 neighbors=st.container()
 def request(client_number):
@@ -67,8 +67,7 @@ with client_score:
 
 with client_info:
     st.header('Client information')
-    inp=st.selectbox('Select Feature',predict_data.columns)
-    st.write(inp,':',predict_data.loc[client_num,inp]) 
+    st.write(predict_data.loc[client_num,:]) 
 with feature_graph:
 	st.header('Client comparision with other customers')
 	inp_col,out_col=st.columns(2)
