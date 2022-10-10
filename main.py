@@ -65,7 +65,10 @@ with client_score:
 	#st.write(request(client_num))
 	  
 
-
+with client_info:
+    st.header('Client information')
+    inp=st.selectbox('Select Feature',predict_data.columns)
+    st.write(inp,':',predict_data.loc[client_num,:]) 
 with feature_graph:
 	st.header('Client comparision with other customers')
 	inp_col,out_col=st.columns(2)
