@@ -59,21 +59,21 @@ with feature_importance_local:
 	#plt.clf()
     #st.markdown(lime(client_num).as_html(), unsafe_allow_html=True)
 with client_score:
-	  fig=go.Figure(go.Indicator(mode="gauge+number",value=request(client_num),title={'text':'Score'}))
-	  st.header('Prediction')
-	  st.plotly_chart(fig,use_container_width=True)
+	fig=go.Figure(go.Indicator(mode="gauge+number",value=request(client_num),title={'text':'Score'}))
+	st.header('Prediction')
+	st.plotly_chart(fig,use_container_width=True)
 	#st.write(request(client_num))
 	  
 
 
 with feature_graph:
-	 st.header('Client comparision with other customers')
-	 inp_col,out_col=st.columns(2)
+	st.header('Client comparision with other customers')
+	inp_col,out_col=st.columns(2)
 with inp_col:
-     st.header('Select Features and Graph type') 	 	
-     inp1=st.selectbox('Select Feature 1',data.columns)
-     inp2=st.selectbox('Select Feature 2',data.columns)
-     inp3=st.selectbox('Select graph type',['Histogram','Scatter plot'])
+    st.header('Select Features and Graph type') 	 	
+    inp1=st.selectbox('Select Feature 1',data.columns)
+    inp2=st.selectbox('Select Feature 2',data.columns)
+    inp3=st.selectbox('Select graph type',['Histogram','Scatter plot'])
 with out_col:
      #hist_data=[list(data[data['TARGET']==0].head(100)[inp].values)]
      #fig=ff.create_distplot(hist_data,group_labels='0')
